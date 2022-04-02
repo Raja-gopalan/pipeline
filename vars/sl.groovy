@@ -1,4 +1,4 @@
-def call(Map parameters = [:]) {
+def call() {
 	echo "build started"
             
             def last_commit_ID = readFile '/home/samco/var/log/hrms-samco-master-last-deploy-id.txt'
