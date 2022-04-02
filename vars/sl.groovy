@@ -29,7 +29,7 @@ def call() {
             
             echo "=========================="
             echo "These are the diff commits between last & latest commits"
-            echo "${diff_commits_ids}"
+            //echo "${diff_commits_ids}"
             echo "=========================="
             
             echo "https://bitbucket.org/samco-team/hrms/commits/${latest_commit}"
