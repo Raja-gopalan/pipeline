@@ -1,5 +1,15 @@
-def call() {
-  def last_commit_ID = readFile "${las_deploy_id}"
+def call(Map params) {
+  def last_deploy_id_file = params.last_deploy_id_file
+  def chg_dir = "${params.chg_dir}"
+  def branch = "${params.branch}"
+  def cred_ID = "${params.cred_ID}"
+  def repo_URL = "${params.repo_URL}"
+  def commit_URL = "${params.commit_URL}"
+  def mailTO = "${params.mailTO}"
+  def CCmailTO = "${params.CCmailTO}"
+    
+    
+  def last_commit_ID = readFile "${last_deploy_id_file}"
   dir ("${chg_dir}"){
     git branch: "${branch}", credentialsId: "${cred_ID}", url: "${repo_URL}"
     
