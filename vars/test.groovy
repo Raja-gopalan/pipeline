@@ -1,4 +1,4 @@
-def call(Map params [:]) {
+def call(Map params) {
   echo "${params.name}"
   echo "${params.url}"
   echo "${params.age}"
