@@ -7,7 +7,16 @@ def call(Map params) {
   def commit_URL = "${params.commit_URL}"
   def mailTO = "${params.mailTO}"
   def CCmailTO = "${params.CCmailTO}"
-    
+  echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
+  echo last_deploy_id_file
+  echo chg_dir
+  echo branch
+  echo cred_ID
+  echo repo_URL
+  echo commit_URL
+  echo mailTO
+  echo CCmailTO
+  echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
     
   def last_commit_ID = readFile "${last_deploy_id_file}"
   dir ("${chg_dir}"){
