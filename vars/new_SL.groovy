@@ -24,7 +24,8 @@ def call(Map params) {
     
     def latest_commit = sh (script: "git log --format='%H' -n 1", returnStdout: true)
     def author_name = sh (script: "git log --format='%an %ce' -n 1", returnStdout: true)
-    def date_of_build = sh (script: "date", returnStdout: true)
+    def date_of_build = sh (script: "date", returnStdout: true)git rev-list --ancestry-path 
+    def diff_commits = sh (script: "git rev-list --ancestry-path 
     
     echo '================='
     echo 'Last Commit ID is'
