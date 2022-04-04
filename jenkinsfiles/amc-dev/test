@@ -1,13 +1,7 @@
 @Library('pipeline-lib')_
 
 node {
-    
     stage ('Demo') {
-    echo 'demo'
-    //sl()
     new_SL last_deploy_id_file: '/home/samco/var/log/hrms-samco-master-last-deploy-id.txt', chg_dir: '/home/samco/Libraries/hrms-samco', branch: 'dev', cred_ID: '6df82309-aa2f-4274-81d7-956a5c84a3a0', repo_URL: 'https://bitbucket.org/samco-team/hrms.git', commit_URL: 'https://bitbucket.org/samco-team/hrms/commits/', mailTO: '${rajagopalan}', CCmailTO: '${muthu_r}'
 }
-    //stage ('new_SL') {
-      //  new_SL name: 'rajagopal', age:'27', path: '/home/rajagopalan', url: 'https://samcomf.com/mf'
-    //}
 }
