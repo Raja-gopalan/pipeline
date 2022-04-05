@@ -49,8 +49,10 @@ def call(Map params) {
     echo 'starting sonar-scanner'
     echo '=================='
                         
-    evaluate(new File("sonar-scan.groovy"))                           
-    sonar(chg_dir: '/opt/jenkins/workspace/hrms-samco', app_name: '${app_name}')
+    //evaluate(new File("sonar-scan.groovy"))     
+    def sonar-scan= load "sonar-scan.groovy"
+      
+    sonar-scan.sonar("chg_dir: '/opt/jenkins/workspace/hrms-samco', app_name: ${app_name}")
                            
                            
     //Email functions started here
