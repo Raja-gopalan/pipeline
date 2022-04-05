@@ -50,7 +50,7 @@ def call(Map params) {
     echo '=================='
                         
     evaluate(new File("sonar-scan.groovy"))                           
-    sonar(chg_dir: '/opt/jenkins/workspace/RankMF-Stag', app_name: '${app_name}')
+    sonar(chg_dir: '/opt/jenkins/workspace/hrms-samco', app_name: '${app_name}')
                            
                            
     //Email functions started here
