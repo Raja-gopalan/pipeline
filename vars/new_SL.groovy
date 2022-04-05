@@ -1,4 +1,4 @@
-import sonar-scan.groovy
+//import sonar-scan.groovy
 
 
 def call(Map params) {
@@ -48,7 +48,8 @@ def call(Map params) {
     echo '=================='
     echo 'starting sonar-scanner'
     echo '=================='
-                           
+                        
+    evaluate(new File("sonar-scan.groovy"))                           
     sonar(chg_dir: '/opt/jenkins/workspace/RankMF-Stag', app_name: '${app_name}')
                            
                            
