@@ -1,4 +1,4 @@
-def call(Map params) {
+def sonar(Map params) {
  	
  	def chg_dir = "${params.chg_dir}"
  	def app_name = "{{params.app_name}"
