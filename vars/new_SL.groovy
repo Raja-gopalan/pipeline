@@ -20,7 +20,7 @@ def call(Map params) {
   echo commit_URL
   echo mailTO
   echo CCmailTO
-  echo '>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>'
+  echo ''
     
   def last_commit_ID = readFile "${last_deploy_id_file}"
   dir ("${chg_dir}"){
@@ -33,7 +33,7 @@ def call(Map params) {
     def affected_files = sh (script: "git diff --diff-filter=ACM --name-only HEAD ${last_commit_ID}", returnStdout: true)
     
     echo '<<<<<<<<<<<<<<<<<<<<<<<<'
-    echo "affected_files"
+    echo "${affected_files}"
     echo '>>>>>>>>>>>>>>>>>>>>>>>>'
     
     echo '================='
