@@ -30,6 +30,11 @@ def call(Map params) {
     def author_name = sh (script: "git log --format='%an %ce' -n 1", returnStdout: true)
     def date_of_build = sh (script: "date", returnStdout: true)
     //def diff_commits = sh (script: "git rev-list --ancestry-path")
+    def affected_files = sh (script: "git diff --diff-filter=ACM --name-only ${last_commit_ID} HEAD", returnStdout: true)
+    
+    echo '<<<<<<<<<<<<<<<<<<<<<<<<'
+    echo 'affected_files'
+    echo '>>>>>>>>>>>>>>>>>>>>>>>>'
     
     echo '================='
     echo 'Last Commit ID is'
@@ -53,22 +58,22 @@ def call(Map params) {
     sh "ls"
     
     
-    dir ("${WORKSPACE}"){
-      switch("${playbook}") {
-        case "php_deployment.yml":
-              sh "git fetch"
-              sh "git checkout origin/master -- playbooks/Jenkins/php_deployment.yml"
-        break
-        case "php_deployment_with_artisian.yml":
-              sh "git fetch"
-              sh "git checkout origin/master -- playbooks/Jenkins/php_deployment_with_artisian.yml"
-        break
-        case "sn-utility-middleware.yml":
-              sh "git fetch"
-              sh "git checkout origin/master -- playbooks/Jenkins/sn-utility-middleware.yml"
-        break
-      }
-    }
+//     dir ("${WORKSPACE}"){
+//       switch("${playbook}") {
+//         case "php_deployment.yml":
+//               sh "git fetch"
+//               sh "git checkout origin/master -- playbooks/Jenkins/php_deployment.yml"
+//         break
+//         case "php_deployment_with_artisian.yml":
+//               sh "git fetch"
+//               sh "git checkout origin/master -- playbooks/Jenkins/php_deployment_with_artisian.yml"
+//         break
+//         case "sn-utility-middleware.yml":
+//               sh "git fetch"
+//               sh "git checkout origin/master -- playbooks/Jenkins/sn-utility-middleware.yml"
+//         break
+//       }
+//     }
       
    
         
