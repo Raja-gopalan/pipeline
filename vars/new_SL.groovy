@@ -10,6 +10,7 @@ def call(Map params) {
   def commit_URL = "${params.commit_URL}"
   def mailTO = "${params.mailTO}"
   def CCmailTO = "${params.CCmailTO}"
+  def play_dir = "${params.play_dir}"
   echo '<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'
   echo last_deploy_id_file
   echo chg_dir
@@ -49,6 +50,33 @@ def call(Map params) {
     echo 'starting sonar-scanner'
     echo '=================='
                         
+    sh "ls"
+    
+    
+    dir ("${WORKSPACE}"){
+      switch("${playbook}") {
+        case "php_deployment.yml":
+              sh "git fetch"
+              sh "git checkout origin/master -- playbooks/Jenkins/php_deployment.yml"
+        break
+        case "php_deployment_with_artisian.yml":
+              sh "git fetch"
+              sh "git checkout origin/master -- playbooks/Jenkins/php_deployment_with_artisian.yml"
+        break
+        case "sn-utility-middleware.yml":
+              sh "git fetch"
+              sh "git checkout origin/master -- playbooks/Jenkins/sn-utility-middleware.yml"
+        break
+      }
+    }
+      
+   
+        
+        
+        
+        
+      
+      
     //evaluate(new File("sonar-scan.groovy"))     
     //def sonar-scan= load "sonar-scan.groovy"
       
