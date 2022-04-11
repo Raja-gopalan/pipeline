@@ -36,6 +36,11 @@ def call(Map params) {
     echo "${affected_files}"
     echo '>>>>>>>>>>>>>>>>>>>>>>>>'
     
+    if (affected_files == null ) {
+      currentBuild.result = 'ABORTED'
+      error('There is no affected files…')
+    }
+    
     echo '================='
     echo 'Last Commit ID is'
     echo "${last_commit_ID}"
