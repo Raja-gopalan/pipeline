@@ -39,7 +39,7 @@ def call(Map params) {
     if (affected_files_1 == null ) {
       currentBuild.result = 'ABORTED'
       error('There is no affected files…')
-      echo " there is no affected files")
+      echo " there is no affected files"
     } else {
       echo "These are the affected files"
       echo "${affected_files_1}"
