@@ -30,13 +30,13 @@ def call(Map params) {
     def author_name = sh (script: "git log --format='%an %ce' -n 1", returnStdout: true)
     def date_of_build = sh (script: "date", returnStdout: true)
     //def diff_commits = sh (script: "git rev-list --ancestry-path")
-    def affected_files = sh (script: "git diff --name-only HEAD ${last_commit_ID}", returnStdout: true)
+    def affected_files_1 = sh (script: "git diff --name-only HEAD ${last_commit_ID}", returnStdout: true)
     
     echo '<<<<<<<<<<<<<<<<<<<<<<<<'
-    echo "${affected_files}"
+    echo "${affected_files_1}"
     echo '>>>>>>>>>>>>>>>>>>>>>>>>'
     
-    if (affected_files == null ) {
+    if (affected_files_1 == null ) {
       currentBuild.result = 'ABORTED'
       error('There is no affected files…')
     }
