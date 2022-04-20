@@ -1,8 +1,8 @@
 def call(Map params) {
-  echo "${params.name}"
-  echo "${params.url}"
-  echo "${params.age}"
-  echo "${params.path}"
+
+  allfunctions.function1('Hello world via function1')
+  allfunctions.function1('Hello world via function2')
+  
 }
 
                 
